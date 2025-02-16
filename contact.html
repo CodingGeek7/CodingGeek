@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Coding Geek</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .contact-form.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-form input, .contact-form button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form button:hover {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .social-links.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .social-links a {
+            font-size: 24px;
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Explore Our Work</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="contact">
+        <h2>Email Us</h2>
+        <p>For any inquiries, reach out to us using the form below:</p>
+        
+        <form action="#" method="post" class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <button type="submit">Send</button>
+        </form>
+        
+        <h2>Get in Touch</h2>
+        <p>Phone: +1 234 567 890</p>
+        <h2>Business Hours</h2>
+        <p>Monday - Friday: 9 AM - 6 PM</p>
+        <p>Saturday - Sunday: Closed</p>
+
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" style="color: #1877F2;">Facebook</a>
+            <a href="https://instagram.com" target="_blank" style="color: #E1306C;">Instagram</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Coding Geek. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".contact-form").classList.add("show");
+            document.querySelector(".social-links").classList.add("show");
+        });
+    </script>
+</body>
+</html>

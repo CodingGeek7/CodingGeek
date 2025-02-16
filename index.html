@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Geek</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .feature, .offerings, .solutions {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .feature.show, .offerings.show, .solutions.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .feature.hide, .offerings.hide, .solutions.hide {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .toggle-theme {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+        .auth-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .toggle-theme button, .auth-buttons button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-theme button:hover, .auth-buttons button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body> 
+    <div class="toggle-theme">
+        <button id="theme-toggle">Dark Mode</button>
+    </div>
+    <div class="auth-buttons">
+        <button onclick="window.location.href='signup.html'">Sign Up</button>
+        <button onclick="window.location.href='login.html'">Log In</button>
+    </div>
+    <header>
+        <h1>Welcome to Coding Geek</h1>
+        <p>Your ultimate destination for web development services</p>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="portfolio.html">Explore Our Work</a></li>
+                <li><a href="services.html">What We Offer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="features">
+        <div class="feature">
+            <h2>Modern Design</h2>
+            <p>We provide sleek and stylish website designs.</p>
+        </div>
+        <div class="feature">
+            <h2>Secure Code</h2>
+            <p>Security is our top priority with robust coding standards.</p>
+        </div>
+        <div class="feature">
+            <h2>24/7 Customer Support</h2>
+            <p>We are always available to assist you anytime.</p>
+        </div>
+        <div class="feature">
+            <h2>Fast Performance</h2>
+            <p>Our websites are optimized for speed and efficiency.</p>
+        </div>
+        <div class="feature">
+            <h2>SEO Friendly</h2>
+            <p>We build websites with the best SEO practices.</p>
+        </div>
+    </section>
+    
+    <section class="offerings">
+        <h2>Discover Our Expertise</h2>
+        <p>Explore the innovative solutions we craft for our clients.</p>
+        <a href="portfolio.html" class="btn">See Our Work</a>
+    </section>
+    
+    <section class="solutions">
+        <h2>Tailored Solutions for You</h2>
+        <p>Providing top-notch web development services to meet your needs.</p>
+        <a href="services.html" class="btn">Learn More</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Coding Geek. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".feature, .offerings, .solutions");
+            sections.forEach(section => {
+                section.classList.add("show");
+            });
+
+            window.addEventListener("scroll", () => {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top > window.innerHeight || rect.bottom < 0) {
+                        section.classList.remove("show");
+                        section.classList.add("hide");
+                    } else {
+                        section.classList.remove("hide");
+                        section.classList.add("show");
+                    }
+                });
+            });
+
+            const toggleButton = document.getElementById("theme-toggle");
+            let darkMode = false;
+            toggleButton.addEventListener("click", () => {
+                darkMode = !darkMode;
+                if (darkMode) {
+                    document.body.style.backgroundColor = "#222";
+                    document.body.style.color = "white";
+                    toggleButton.textContent = "White Mode";
+                } else {
+                    document.body.style.backgroundColor = "white";
+                    document.body.style.color = "black";
+                    toggleButton.textContent = "Dark Mode";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
